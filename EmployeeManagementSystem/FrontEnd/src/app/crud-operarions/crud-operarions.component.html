@@ -1,0 +1,71 @@
+<hr>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center text-white bg-danger">ISB STUDENTS MANAGEMENTS SYSTEM</h1>
+       <hr>
+       <div class="container mt-4">
+        <h3 class="text-center text-white bg-success">ADD STUDENTS DETAILS</h3>
+        <div class="card">
+               
+    <form>
+       
+        <div class="form-group">
+          <label>Student Name</label>
+          <input type="text"  [(ngModel)]="name" [ngModelOptions]="{standalone: true}"   class="form-control" id="studentname" name="studentname" placeholder="Enter Name">
+        </div>
+        
+        <div class="form-group">
+            <label >Address</label>
+            <input type="text" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" class="form-control" id="studentaddress" name="studentaddress" placeholder="Enter Address">
+          </div>
+    
+          <div class="form-group">
+            <label >Fee</label>
+            <input type="text" [(ngModel)]="fee" [ngModelOptions]="{standalone: true}" class="form-control" id="fee" name="text" placeholder="Enter Fee">
+          </div>
+    
+          <button type="submit" class="btn btn-success btn-lg offset-md-5" (click)="saveRecords()" >Save</button> &nbsp;
+          <button type="submit" class="btn btn-success btn-lg" (click)="UpdateRecords()" >Update</button>
+      </form>
+    </div>
+    </div>
+    
+    <div>
+        <div class="container mt-4" >
+            <h3 class="text-center text-white bg-success">STUDENT INFORMATION</h3>
+            <br>
+
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">     
+            <tr>
+                <th scope="col">NAME</th>
+                <th scope="col">ADDRESS</th>
+                <th scope="col">FEE</th>
+                <th scope="col">OPTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let StudentItem of StudentArray">
+               
+                <td>{{StudentItem.name}}</td>
+                <td>{{StudentItem.address }}</td>
+                <td>{{StudentItem.fee }}</td>
+     
+                <td>
+                    <button type="button" class="btn btn-success" (click)="setUpdate(StudentItem)">EDIT</button>&nbsp;
+                    <button type="button" class="btn btn-success" (click)="setDelete(StudentItem)">DELETE</button>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+
+        
+       <hr>
+
+    </div>
+</div>
+</div>
+<hr>
